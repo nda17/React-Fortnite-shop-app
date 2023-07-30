@@ -3,7 +3,7 @@ import logo from '../images/shop.jpg';
 export function Header() {
 	return (
 		<header className='container header-prop'>
-			<div className='row'>
+			<div className='row header'>
 				<div className='col-6 left-header-column'>
 					<img className='logo-image' src={logo} alt='Logo' />
 				</div>
@@ -23,11 +23,6 @@ export function Header() {
 							<li className='nav-container__link-wrap'>
 								<a href='#0' className='nav-container__link'>
 									Favorites
-								</a>
-							</li>
-							<li className='nav-container__link-wrap'>
-								<a href='#0' className='nav-container__link'>
-									About
 								</a>
 							</li>
 						</ul>

@@ -1,5 +1,21 @@
-# «Shop»
+# «React Hero-Shop App»
 
-Development files, implementation with React class components
+## Used:
+- React v18.2.0
+- JSX
+- HTML
+- CSS
+- Bootstrap v5.3
 
-Stack: React v18.2.0 , Bootstrap5
+## Deployed:
+[Watch here](https://nda17.github.io/React-Hero-shop-app/)
+
+## Project setup:
+```
+yarn / npm install 
+```
+
+## Compiles and minifies for production:
+```
+yarn run build / npm run build
+```
