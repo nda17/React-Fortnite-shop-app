@@ -11,9 +11,9 @@ function BasketItem(props) {
 				<h3 className='basket__name-item'>{displayName}</h3>
 				<div>
 					<span>
-						<span className='basket__symbol'>&#8722;</span>
+						<a href="#0" className='basket__symbol' onClick={console.log(1)}>&#8722;</a>
 						{quantity}
-						<span className='basket__symbol'>&#43;</span>
+						<a href="#0" className='basket__symbol' onClick={console.log(1)}>&#43;</a>
 					</span>
 				</div>
 			</div>

@@ -1,5 +1,3 @@
-import { AlertToCart } from "./AlertToCart";
-
 //5 Функциональный компонент Cart, корзина с товарами. Принимает props с количеством товара, по умолчанию quantity = 0.
 function Cart(props) {
 	const {
@@ -14,7 +12,6 @@ function Cart(props) {
 				handleBasketShow /*При клике на корзину вызов функции handleBasketShow*/
 			}
 		>
-			<AlertToCart />
 			<div className='cart'>
 				<img
 					className='cart-icon'
@@ -29,7 +26,6 @@ function Cart(props) {
 					) /*если в props есть элементы, отобразить их количество в корзине*/
 				}
 			</div>
-
 			{quantity ? <span className='cart-quantity'></span> : null}
 		</div>
 	);

@@ -67,6 +67,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	border: 1px solid #000000;
+	position: relative;
 }
 /* //////////////////// */
 
@@ -131,14 +132,23 @@ body {
 
 /*Информационный баннер*/
 .alert-banner {
-    position: absolute;
-    z-index: 100;
-    top: 15px;
-    right: 67px;
-    background-color: antiquewhite;
-    width: 221px;
-    height: 64px;
-    border-radius: 5px 0px 0px 5px;
+	position: absolute;
+	z-index: 100;
+	top: 15px;
+	right: 67px;
+	background-color: antiquewhite;
+	width: 221px;
+	min-height: 64px;
+	border-radius: 5px 0px 0px 5px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	opacity: .7;
+	transition: all 2s;
+}
+
+.alert-banner__text {
+	padding-left: 6px;
 }
 /* //////////////////// */
 

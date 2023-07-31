@@ -15,7 +15,8 @@ function Shop() {
 	const [loading, setLoading] = useState(true); //Прелоадер
 	const [order, setOrder] = useState([]); //Корзина с товарами
 	const [isBasketShow, setBasketShow] = useState(false); //Состояние отвечающее за статус отображения корзины
-	const [infoAlert, setInfoAlert] = useState(''); //Информационный баннер корзины
+	// eslint-disable-next-line
+	const [textAlert, setTextAlert] = useState(''); //Информационный баннер корзины (текст)
 	const [currentPage, setCurrentPage] = useState(1); //Текущая отображаемая группа страниц (пагинация)
 	const [cardPerPage] = useState(12); //Количество отображаемых карточек в одной группе страниц (пагинация)
 
@@ -31,14 +32,12 @@ function Shop() {
 				quantity: 1,
 			};
 			setOrder([...order, newItem] /*обновление заказов в корзине*/);
-			console.log('New item added to cart');
-			setInfoAlert('New item added to cart');
+			setTextAlert('New item added to cart');
 		} else {
 			//Если уже присутствует:
 			const newOrder = order.map((orderItem, index) => {
 				if (index === itemIndex) {
-					console.log('Quantity increased');
-					setInfoAlert('Quantity increased');
+					setTextAlert('Quantity increased');
 					return {
 						...orderItem,
 						quantity: orderItem.quantity + 1,
@@ -49,22 +48,26 @@ function Shop() {
 			});
 			setOrder(newOrder);
 		}
+		setTextAlert(`${item.displayName} add to basket`);
 		console.log(item);
 	};
 
 	//Функция удаления товара из корзины, передаем в BasketList
 	const removeFromBasket = itemId => {
 		const newOrder = order.filter(el => el.mainId !== itemId);
-		console.log('приходящий itemID:', itemId);
-		// // console.log('order', newOrder.mainId);
-		console.log('newORDER:', newOrder);
 		setOrder(newOrder);
+		setTextAlert('Item removed');
 	};
 
 	//Функция управления состоянием показа корзины, передаем в BasketList
 	const handleBasketShow = () => {
 		setBasketShow(!isBasketShow);
 		document.querySelector('.row-main').classList.toggle('active'); //Blur-эффект
+	};
+
+	//Функция удаления текста из информационного баннера
+	const closeAlert = () => {
+		setTextAlert('');
 	};
 
 	const paginate = pageNumber => setCurrentPage(pageNumber); //Функция вывода следующей группы карточек при клике кнопки с номером страницы
@@ -75,6 +78,7 @@ function Shop() {
 			setCurrentPage(prev => prev - 1);
 		} else {
 			/* ВЫВОД СООБЩЕНИЯ */
+			setTextAlert('First page');
 		}
 	};
 
@@ -84,6 +88,7 @@ function Shop() {
 			setCurrentPage(prev => prev + 1);
 		} else {
 			/* ВЫВОД СООБЩЕНИЯ */
+			setTextAlert('Last page');
 		}
 	};
 
@@ -136,6 +141,9 @@ function Shop() {
 					/>
 				) /*Если isBasketShow === true?, отрисовать открытую корзину и передать в нее товары*/
 			}
+			{textAlert && (
+				<AlertToCart textAlert={textAlert} closeAlert={closeAlert} />
+			)}
 		</main>
 	);
 }
