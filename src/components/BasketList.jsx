@@ -1,4 +1,6 @@
-import { BasketItem } from './BasketItem';
+import { BasketItem } from './BasketItem'
+import cn from 'clsx'
+import styles from './BasketList.module.scss'
 
 //6 Функциональный компонент BasketList, список заказов в корзине, в props приходит массив со списком заказов и функция управления состоянием показа корзины
 function BasketList(props) {
@@ -6,23 +8,25 @@ function BasketList(props) {
 		order = [],
 		handleBasketShow = Function.prototype,
 		removeFromBasket = Function.prototype,
-	} = props;
+		incQuantity,
+		decQuantity
+	} = props
 
 	//Функция рассчета итоговой суммы в корзине
 	const totalPrice = order.reduce((acc, el) => {
 		const price =
 			el.price.regularPrice === el.price.finalPrice
 				? el.price.regularPrice
-				: el.price.finalPrice;
-		return acc + price * el.quantity;
-	}, 0);
+				: el.price.finalPrice
+		return acc + price * el.quantity
+	}, 0)
 
 	return (
-		<div className='basket'>
-			<h2 className='basket__title'>
+		<div className={cn('basketMedia', styles.basket)}>
+			<h2 className={cn(styles.basketTitle)}>
 				Cart:
 				<span
-					className='basket__symbol-close symbol'
+					className={cn(styles.basketSymbolClose)}
 					onClick={handleBasketShow}
 				>
 					&#10006;
@@ -34,16 +38,18 @@ function BasketList(props) {
 					<BasketItem
 						key={item.mainId}
 						removeFromBasket={removeFromBasket}
+						incQuantity={incQuantity}
+						decQuantity={decQuantity}
 						{...item}
 					/>
 				))
 			) : (
-				<li className='basket__item-block'>Сart is empty</li>
+				<li className={cn(styles.basketItemWrap)}>Сart is empty</li>
 			)}
-			<li className='basket__total'>Total cost: {totalPrice} ₽</li>
-			<button className='basket__button-buy'>Buy</button>
+			<li className={cn(styles.basketTotal)}>Total cost: {totalPrice} ₽</li>
+			<button className={cn(styles.basketButtonBuy)}>Buy</button>
 		</div>
-	);
+	)
 }
 
-export { BasketList };
+export { BasketList }

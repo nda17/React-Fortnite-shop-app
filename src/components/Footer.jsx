@@ -1,30 +1,34 @@
-import gh from '../icons/github.svg';
+import gh from '../icons/github.svg'
+import cn from 'clsx'
+import styles from './Footer.module.scss'
 
-export function Footer() {
+function Footer() {
 	return (
-		<footer className='container footer-prop'>
-			<div className='row footer'>
-				<div className='col-12 footer-cols'>
-					<div className='copyright'>
-						<p className='copyright__up-text'>
+		<footer className={cn('container', styles.footerProp)}>
+			<div className={cn('row', styles.footer)}>
+				<div className={cn('col-12', styles.footerCols)}>
+					<div className={cn(styles.copyright)}>
+						<p className={cn(styles.copyrightUpText)}>
 							© {new Date().getFullYear()}
 							&nbsp; «Hero shop»
 						</p>
-						<p className='copyright__bottom-text'>All Rights Reserved</p>
+						<p className={cn(styles.copyrightBottomText)}>
+							All Rights Reserved
+						</p>
 					</div>
-					<div className='link-contacts'>
-						<a className='navbar-brand' href='https://github.com/nda17'>
-							<img
-								className='link-contacts__gh'
-								src={gh}
-								alt='Github'
-								width='30'
-								height='30'
-							/>
-						</a>
-					</div>
+					<a href='https://github.com/nda17'>
+						<img
+							className={cn(styles.linkContactsGh)}
+							src={gh}
+							alt='Github'
+							width='30'
+							height='30'
+						/>
+					</a>
 				</div>
 			</div>
 		</footer>
-	);
+	)
 }
+
+export { Footer }

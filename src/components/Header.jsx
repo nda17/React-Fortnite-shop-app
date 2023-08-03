@@ -1,27 +1,29 @@
-import logo from '../images/shop.jpg';
+import logo from '../images/shop.jpg'
+import cn from 'clsx'
+import styles from './Header.module.scss'
 
-export function Header() {
+function Header() {
 	return (
-		<header className='container header-prop'>
-			<div className='row header'>
-				<div className='col-6 left-header-column'>
-					<img className='logo-image' src={logo} alt='Logo' />
+		<header className={cn('container', styles.headerProp)}>
+			<div className={cn('row', styles.header)}>
+				<div className={cn('col-6', styles.leftHeaderColumn)}>
+					<img className={cn(styles.logoImage)} src={logo} alt='Logo' />
 				</div>
-				<div className='col-6 nav-column'>
+				<div className={cn('col-6', styles.navColumn)}>
 					<nav>
-						<ul className='nav-container'>
-							<li className='nav-container__link-wrap'>
-								<a href='#0' className='nav-container__link'>
+						<ul className={cn(styles.navContainer)}>
+							<li className={cn(styles.navContainerLinkWrap)}>
+								<a href='#0' className={cn(styles.navContainerLink)}>
 									Catalog
 								</a>
 							</li>
-							<li className='nav-container__link-wrap'>
-								<a href='#0' className='nav-container__link'>
+							<li className={cn(styles.navContainerLinkWrap)}>
+								<a href='#0' className={cn(styles.navContainerLink)}>
 									Orders
 								</a>
 							</li>
-							<li className='nav-container__link-wrap'>
-								<a href='#0' className='nav-container__link'>
+							<li className={cn(styles.navContainerLinkWrap)}>
+								<a href='#0' className={cn(styles.navContainerLink)}>
 									Favorites
 								</a>
 							</li>
@@ -30,5 +32,7 @@ export function Header() {
 				</div>
 			</div>
 		</header>
-	);
+	)
 }
+
+export { Header }

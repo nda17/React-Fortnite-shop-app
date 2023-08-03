@@ -1,0 +1,50 @@
+.headerProp {
+	background-color: #000000;
+	transition: all 1.2s ease-out;
+}
+
+.header {
+	margin: 0;
+}
+
+.leftHeaderColumn {
+	display: flex;
+	padding: 0;
+}
+
+.logoImage {
+	width: 60px;
+	height: 60px;
+	padding: 10px 0px;
+	box-sizing: content-box;
+}
+
+.navColumn {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	padding: 0;
+}
+
+.navContainer {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.navContainerLinkWrap {
+	margin-right: 15px;
+}
+
+.navContainerLinkWrap:last-child {
+	margin-right: 0px;
+}
+
+.navContainerLink {
+	color: #ffffff;
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+.nav-container__link:hover {
+	color: red;
+}

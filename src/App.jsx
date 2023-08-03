@@ -1,6 +1,6 @@
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
-import { Shop } from './components/Shop';
+import { Header } from './components/Header'
+import { Footer } from './components/Footer'
+import { Shop } from './components/Shop'
 
 function App() {
 	return (
@@ -9,7 +9,7 @@ function App() {
 			<Shop />
 			<Footer />
 		</>
-	);
+	)
 }
 
-export default App;
+export default App

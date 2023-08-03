@@ -1,0 +1,39 @@
+/* Устройства Small (устройства с горизонтальной ориентацией от 576px) */
+@media (min-width: 576px) {
+	.basketMedia {
+		max-width: 32rem !important;
+	}
+
+	.basketItemWrap {
+		font-size: 1.1rem !important;
+	}
+
+	.basketNameItem {
+		margin: 0 !important;
+		width: 20rem !important;
+	}
+
+	.basketQuantityBtnWrap {
+		flex-direction: row !important;
+	}
+
+	.pageControlWrap {
+		width: 60% !important;
+	}
+
+	.pageControlBtn {
+		width: 27% !important;
+	}
+}
+
+@media (min-width: 768px) {
+	.basketMedia {
+		max-width: 42rem !important;
+	}
+}
+
+@media (min-width: 992px) {
+	.basketMedia {
+		max-width: 55rem !important;
+	}
+}

@@ -1,0 +1,33 @@
+/* Корзина товаров: */
+.cartWrap {
+	position: sticky;
+	top: 86%;
+	z-index: 999;
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	/* padding: 15px 5px 0px 5px; */
+	padding: 0px 5px;
+	cursor: pointer;
+}
+
+.cart {
+	width: 60px;
+	height: 60px;
+	background: red;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+	border-radius: 5px;
+	padding: 2px;
+	box-sizing: content-box;
+}
+
+.cartIcon {
+	height: 37px;
+	width: 37px;
+	display: block;
+	background-color: red;
+}

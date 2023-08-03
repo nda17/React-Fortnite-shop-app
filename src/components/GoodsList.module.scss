@@ -1,0 +1,34 @@
+.rowSectionMain {
+	&.show {
+		filter: grayscale(1);
+		pointer-events: none;
+	}
+}
+
+.pagination {
+	display: flex;
+	justify-content: center;
+	padding: 28px;
+	flex-wrap: wrap;
+}
+
+.pageControlWrap {
+	display: flex;
+	justify-content: space-evenly;
+	width: 85%;
+}
+
+.pageControlBtn {
+	width: 45%;
+	margin-bottom: 1rem;
+	display: flex;
+	justify-content: center;
+	background-color: firebrick;
+	border: none;
+	transition: all 0.3s;
+}
+
+.pageControlBtn:hover {
+	background-color: tomato;
+	scale: 1.01;
+}

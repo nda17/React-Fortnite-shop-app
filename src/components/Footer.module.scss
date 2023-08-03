@@ -1,0 +1,34 @@
+.footer {
+	margin: 0;
+}
+
+.footerProp {
+	min-height: 55px;
+	display: flex;
+	align-items: center;
+	background-color: #000000;
+	transition: all 1.2s ease-out;
+}
+
+.footerCols {
+	display: flex;
+	justify-content: space-between;
+	padding: 0;
+}
+
+.copyright {
+	display: flex;
+	flex-direction: column;
+}
+
+.copyrightUpText,
+.copyrightBottomText {
+	color: white;
+	display: flex;
+	align-items: center;
+	margin: 0;
+}
+
+.linkContactsGh {
+	width: 25px;
+}
