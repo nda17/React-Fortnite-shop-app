@@ -1,4 +1,4 @@
-# «React Hero-Shop App»
+# «React Fortnite-shop app»
 
 ## Used:
 - React v18.2.0

@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react'
 import cn from 'clsx'
-import styles from '../assets/styles/index.scss'
+import '../assets/styles/index.scss'
 import { API_KEY } from '../config'
 import { API_URL } from '../config'
 import { Preloader } from './Preloader'
 import { GoodsList } from './GoodsList'
 import { Cart } from './Cart'
 import { BasketList } from './BasketList'
-import { AlertToCart } from './AlertToCart'
 import axios from 'axios'
 
 //1 Функциональный компонент Shop
@@ -123,7 +122,7 @@ function Shop() {
 		if (currentPage !== 1) {
 			setCurrentPage(prev => prev - 1)
 		} else {
-			/* ВЫВОД СООБЩЕНИЯ */
+			/* Показ текста */
 			setTextAlert('First page')
 			setAlertShow(true)
 		}
@@ -134,7 +133,7 @@ function Shop() {
 		if (currentPage !== cardPerPage) {
 			setCurrentPage(prev => prev + 1)
 		} else {
-			/* ВЫВОД СООБЩЕНИЯ */
+			/* Показ текста */
 			setTextAlert('Last page')
 			setAlertShow(true)
 		}
@@ -160,6 +159,7 @@ function Shop() {
 	return (
 		<main
 			className={cn('container', 'contentApp', 'mainProp', {
+				// eslint-disable-next-line
 				['show']: isBasketShow
 			})}
 		>

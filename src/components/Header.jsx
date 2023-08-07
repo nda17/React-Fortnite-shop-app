@@ -1,4 +1,4 @@
-import logo from '../images/shop.jpg'
+import logo from '../images/fortnite-logo.svg'
 import cn from 'clsx'
 import styles from './Header.module.scss'
 

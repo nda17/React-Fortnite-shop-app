@@ -10,7 +10,7 @@ function Footer() {
 					<div className={cn(styles.copyright)}>
 						<p className={cn(styles.copyrightUpText)}>
 							© {new Date().getFullYear()}
-							&nbsp; «Hero shop»
+							&nbsp; «Fortnite shop»
 						</p>
 						<p className={cn(styles.copyrightBottomText)}>
 							All Rights Reserved
