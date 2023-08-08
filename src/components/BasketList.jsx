@@ -27,11 +27,11 @@ function BasketList(props) {
 	return (
 		<div
 			className={cn('basketMedia', styles.basket)}
-			ref={ref} 
+			ref={ref}
 			isshow={isshow}
 			setisshow={setisshow}
 		>
-			{isshow ? null : console.log('mimo')} {/*Действие  при клике вне области корзины*/}
+			{/* {isshow ? null : console.log('mimo')} Действие  при клике вне области корзины */}
 			<h2 className={cn(styles.basketTitle)}>
 				Cart:
 				<span
@@ -45,7 +45,7 @@ function BasketList(props) {
 				{order.length ? ( //Если заказы есть, обходим массив с заказами, отрисовываем элементы через BasketItem
 					order.map(item => (
 						<BasketItem
-							key={item.mainId}
+							key={item.offerId}
 							removeFromBasket={removeFromBasket}
 							incQuantity={incQuantity}
 							decQuantity={decQuantity}

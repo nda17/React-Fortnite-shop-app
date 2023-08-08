@@ -4,7 +4,7 @@ import styles from './BasketItem.module.scss'
 
 function BasketItem(props) {
 	const {
-		mainId,
+		offerId,
 		displayName,
 		price,
 		quantity,
@@ -22,7 +22,7 @@ function BasketItem(props) {
 					href='#0'
 					className={cn(styles.basketSymbolBottom)}
 					onClick={() => {
-						incQuantity(mainId)
+						incQuantity(offerId)
 					}}
 				>
 					&#43;
@@ -31,7 +31,7 @@ function BasketItem(props) {
 					href='#0'
 					className={cn(styles.basketSymbolTop)}
 					onClick={() => {
-						decQuantity(mainId)
+						decQuantity(offerId)
 					}}
 				>
 					&#8722;
@@ -49,7 +49,7 @@ function BasketItem(props) {
 			</div>
 			<span
 				className={cn(styles.basketSymbolClose)}
-				onClick={() => removeFromBasket(mainId)}
+				onClick={() => removeFromBasket(offerId)}
 			>
 				&#10006;
 			</span>

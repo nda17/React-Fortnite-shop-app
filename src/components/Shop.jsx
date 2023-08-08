@@ -22,10 +22,11 @@ function Shop() {
 	const [currentPage, setCurrentPage] = useState(1) //Текущая отображаемая группа страниц (пагинация)
 	const [cardPerPage] = useState(12) //Количество отображаемых карточек в одной группе страниц (пагинация)
 
+
 	//Функция добавления товара в корзину
 	const addToBasket = item => {
 		const itemIndex = order.findIndex(
-			orderItem => orderItem.mainId === item.mainId
+			orderItem => orderItem.offerId === item.offerId
 		) //Проверка присутствует ли данная карточка уже в корзине
 		if (itemIndex < 0) {
 			//Если нет, добавляем в корзину 1шт товара:
@@ -56,17 +57,17 @@ function Shop() {
 	}
 
 	//Функция удаления товара из корзины, передаем в BasketList
-	const removeFromBasket = itemId => {
-		const newOrder = order.filter(el => el.mainId !== itemId)
+	const removeFromBasket = offerId => {
+		const newOrder = order.filter(el => el.offerId !== offerId)
 		setOrder(newOrder)
 		setTextAlert('Item removed')
 		setAlertShow(true)
 	}
 
 	//Функция увеличения количества товара в корзине
-	const incQuantity = mainId => {
+	const incQuantity = offerId => {
 		const newOrder = order.map(el => {
-			if (el.mainId === mainId) {
+			if (el.offerId === offerId) {
 				const newQuantity = el.quantity + 1
 				setTextAlert('Quantity increased')
 				setAlertShow(true)
@@ -82,9 +83,9 @@ function Shop() {
 	}
 
 	//Функция уменьшения количества товара в корзине
-	const decQuantity = mainId => {
+	const decQuantity = offerId => {
 		const newOrder = order.map(el => {
-			if (el.mainId === mainId) {
+			if (el.offerId === offerId) {
 				const newQuantity = el.quantity - 1
 				newQuantity >= 1
 					? setTextAlert('Quantity reduced')

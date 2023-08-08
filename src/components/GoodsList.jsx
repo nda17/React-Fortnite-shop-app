@@ -14,7 +14,7 @@ function GoodsList(props) {
 		nextPage = Function.prototype,
 		addToBasket = Function.prototype,
 		isBasketShow = false
-	} = props //goods, по умолчанию пустой массив
+	} = props
 	//Если в props пусто:
 	if (!goods.length) {
 		return <h3>Nothing found!</h3>
@@ -29,7 +29,6 @@ function GoodsList(props) {
 	for (let i = 1; i < Math.ceil(goods.length / cardPerPage); i++) {
 		pageNumbers.push(i)
 	}
-
 	return (
 		<div
 			className={cn('row', styles.rowSectionMain, {
@@ -38,7 +37,7 @@ function GoodsList(props) {
 		>
 			{currentCard.map(item => (
 				<GoodsItem
-					key={item.mainId}
+					key={item.offerId}
 					{...item}
 					addToBasket={
 						addToBasket /*Передача addToBasket ниже в GoodsItem как props*/

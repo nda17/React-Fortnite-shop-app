@@ -4,7 +4,7 @@ import styles from './GoodsItem.module.scss'
 
 function GoodsItem(props) {
 	const {
-		mainId,
+		offerId,
 		displayName,
 		displayDescription,
 		price,
@@ -16,7 +16,7 @@ function GoodsItem(props) {
 			<div className={cn('h-100', 'card', styles.card)}>
 				<img
 					src={displayAssets[0].url}
-					id={mainId}
+					id={offerId}
 					className={cn('card-img-top', styles.cardImgTop)}
 					alt='Item'
 				/>
@@ -29,7 +29,7 @@ function GoodsItem(props) {
 							onClick={() =>
 								addToBasket({
 									/*В момент клика выполянем функцию и передаем в нее параметры*/
-									mainId,
+									offerId,
 									displayName,
 									price
 								})
