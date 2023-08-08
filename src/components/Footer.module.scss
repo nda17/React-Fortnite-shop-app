@@ -8,12 +8,14 @@
 	align-items: center;
 	background-color: #000000;
 	transition: all 1.2s ease-out;
+    height: 6.5rem;
+    margin-top: -1.5rem;
 }
 
 .footerCols {
 	display: flex;
 	justify-content: space-between;
-	padding: 0;
+	padding-top: 1.4rem;
 }
 
 .copyright {

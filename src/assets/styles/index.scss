@@ -69,6 +69,9 @@ body {
 	border: 1px solid #000000;
 	position: relative;
 	transition: all 1.2s ease-out;
+	border-right: 4px solid #000000;
+	border-left: 4px solid #000000;
+	border-radius: 25px;
 }
 
 .show {

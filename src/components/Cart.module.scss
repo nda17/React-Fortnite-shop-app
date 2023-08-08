@@ -8,11 +8,12 @@
 
 .cartWrap {
     position: fixed;
-    bottom: 3.5rem;
+    bottom: 6.5rem;
     display: flex;
     justify-content: flex-end;
     padding: 0px 5px;
     cursor: pointer;
+	opacity: 0.85;
 }
 
 .cart {
@@ -24,9 +25,10 @@
 	align-items: center;
 	justify-content: center;
 	filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
-	border-radius: 5px;
+	border-radius: 18px;
 	padding: 2px;
 	box-sizing: content-box;
+	z-index: 999999999;
 }
 
 .cartIcon {
@@ -40,10 +42,9 @@
 .alertBanner {
 	position: absolute;
 	z-index: 100;
-	/* top: 15px; */
-	right: 67px;
+	right: 53px;
 	background-color: antiquewhite;
-	width: 221px;
+	width: 241px;
 	height: 64px;
 	border-radius: 5px 0px 0px 5px;
 	display: flex;
