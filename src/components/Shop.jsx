@@ -9,6 +9,13 @@ import { Cart } from './Cart'
 import { BasketList } from './BasketList'
 import axios from 'axios'
 
+
+
+// import { useLocalStorage } from '../hooks/useLocalStorage'
+
+
+
+
 //1 Функциональный компонент Shop
 function Shop() {
 	//Состояние компонентов:
@@ -21,6 +28,11 @@ function Shop() {
 	const [textAlert, setTextAlert] = useState('') //Информационный баннер корзины (текст)
 	const [currentPage, setCurrentPage] = useState(1) //Текущая отображаемая группа страниц (пагинация)
 	const [cardPerPage] = useState(12) //Количество отображаемых карточек в одной группе страниц (пагинация)
+
+	// const useLocalStorages = () => {
+	// 	localStorage.clear()
+	// 	const [count, setCount] = useLocalStorage(order, 'goods')
+	// } //Добавление в localStorage
 
 
 	//Функция добавления товара в корзину
@@ -51,7 +63,6 @@ function Shop() {
 			})
 			setTextAlert('Quantity increased')
 			setAlertShow(true)
-
 			setOrder(newOrder)
 		}
 	}
@@ -163,6 +174,7 @@ function Shop() {
 				// eslint-disable-next-line
 				['show']: isBasketShow
 			})}
+			onClick={isBasketShow ? handleBasketShow : null} //Закрытие корзины при клике вне области
 		>
 			<Cart
 				quantity={order.length}
