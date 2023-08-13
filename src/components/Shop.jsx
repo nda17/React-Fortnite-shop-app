@@ -10,7 +10,7 @@ import { BasketList } from './BasketList'
 import axios from 'axios'
 
 
-
+import { useOnClickOutside } from '../hooks/useOnClickOutside'
 // import { useLocalStorage } from '../hooks/useLocalStorage'
 
 
@@ -28,12 +28,13 @@ function Shop() {
 	const [textAlert, setTextAlert] = useState('') //Информационный баннер корзины (текст)
 	const [currentPage, setCurrentPage] = useState(1) //Текущая отображаемая группа страниц (пагинация)
 	const [cardPerPage] = useState(12) //Количество отображаемых карточек в одной группе страниц (пагинация)
+	// eslint-disable-next-line
+	const { isShow, ref, setIsShow } = useOnClickOutside(false) //Отслеживание клика вне области открытой корзины
 
 	// const useLocalStorages = () => {
 	// 	localStorage.clear()
 	// 	const [count, setCount] = useLocalStorage(order, 'goods')
 	// } //Добавление в localStorage
-
 
 	//Функция добавления товара в корзину
 	const addToBasket = item => {
@@ -174,7 +175,7 @@ function Shop() {
 				// eslint-disable-next-line
 				['show']: isBasketShow
 			})}
-			onClick={isBasketShow ? handleBasketShow : null} //Закрытие корзины при клике вне области
+			onClick={isBasketShow && !isShow ? handleBasketShow : null} //Если корзина открыта и произошел клик вне ее области, закрытие корзины
 		>
 			<Cart
 				quantity={order.length}
@@ -201,13 +202,16 @@ function Shop() {
 			)}
 			{
 				isBasketShow && (
-					<BasketList
-						order={order}
-						handleBasketShow={handleBasketShow}
-						removeFromBasket={removeFromBasket}
-						incQuantity={incQuantity}
-						decQuantity={decQuantity}
-					/>
+					<div ref={ref}>
+						{/* Контейнер для отслеживания клика вне области корзины и закрытия ее */}
+						<BasketList
+							order={order}
+							handleBasketShow={handleBasketShow}
+							removeFromBasket={removeFromBasket}
+							incQuantity={incQuantity}
+							decQuantity={decQuantity}
+						/>
+					</div>
 				) /*Если isBasketShow === true?, отрисовать открытую корзину и передать в нее товары*/
 			}
 			{/* {textAlert && (

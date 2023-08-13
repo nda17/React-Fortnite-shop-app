@@ -3,10 +3,13 @@ import { BasketItem } from './BasketItem'
 import cn from 'clsx'
 import styles from './BasketList.module.scss'
 
+// import { useOnClickOutside } from '../hooks/useOnClickOutside'
+
 //6 Функциональный компонент BasketList, список заказов в корзине, в props приходит массив со списком заказов и функция управления состоянием показа корзины
 function BasketList(props) {
 	// eslint-disable-next-line
 	// const { isshow, ref, setisshow } = useOnClickOutside(false) //Состояние при клике вне области корзины
+	// console.log(isshow, 'basketlist')
 	const {
 		order = [],
 		handleBasketShow = Function.prototype,
