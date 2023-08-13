@@ -2,16 +2,15 @@ import { useEffect, useRef, useState } from 'react'
 
 //Отслеживание клика вне области корзины
 const useOnClickOutside = isInitialValue => {
-	const [isShow, setIsShow] = useState(isInitialValue)
+	const [isClickOutside, setClickOutside] = useState(isInitialValue)
 	const ref = useRef(null)
 
 	const handleClickOutside = event => {
-		if (ref.current && !ref.current.contains(event.target)) {
-			setIsShow(false)
+		if (ref.current && ref.current.contains(event.target)) {
+			setClickOutside(false)
 		} else {
-			setIsShow(true)
+			setClickOutside(true)
 		}
-		console.log(isShow)
 	}
 
 	useEffect(() => {
@@ -22,7 +21,7 @@ const useOnClickOutside = isInitialValue => {
 		}
 	})
 
-	return { ref, isShow, setIsShow }
+	return { ref, isClickOutside, setClickOutside }
 }
 
 export { useOnClickOutside }

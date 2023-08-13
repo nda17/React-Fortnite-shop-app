@@ -15,7 +15,7 @@ function BasketList(props) {
 		handleBasketShow = Function.prototype,
 		removeFromBasket = Function.prototype,
 		incQuantity,
-		decQuantity
+		decQuantity,
 	} = props
 
 	//Функция рассчета итоговой суммы в корзине

@@ -29,7 +29,7 @@ function Shop() {
 	const [currentPage, setCurrentPage] = useState(1) //Текущая отображаемая группа страниц (пагинация)
 	const [cardPerPage] = useState(12) //Количество отображаемых карточек в одной группе страниц (пагинация)
 	// eslint-disable-next-line
-	const { isShow, ref, setIsShow } = useOnClickOutside(false) //Отслеживание клика вне области открытой корзины
+	const { isClickOutside, setClickOutside, ref } = useOnClickOutside(false) //Отслеживание клика вне области открытой корзины
 
 	// const useLocalStorages = () => {
 	// 	localStorage.clear()
@@ -175,7 +175,7 @@ function Shop() {
 				// eslint-disable-next-line
 				['show']: isBasketShow
 			})}
-			onClick={isBasketShow && !isShow ? handleBasketShow : null} //Если корзина открыта и произошел клик вне ее области, закрытие корзины
+			onClick={isBasketShow && isClickOutside ? handleBasketShow : null} //Если корзина открыта и произошел клик вне ее области, закрытие корзины
 		>
 			<Cart
 				quantity={order.length}
