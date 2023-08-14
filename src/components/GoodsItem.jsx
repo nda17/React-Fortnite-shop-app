@@ -9,7 +9,7 @@ function GoodsItem(props) {
 		displayDescription,
 		price,
 		displayAssets,
-		addToBasket = Function.prototype
+		addToBasket = Function.prototype,
 	} = props
 	return (
 		<div className={cn('col-12', styles.cards)}>

@@ -10,6 +10,8 @@ import { BasketList } from './BasketList'
 import axios from 'axios'
 import { useOnClickOutside } from '../hooks/useOnClickOutside'
 
+import { useLocalStorage } from '../hooks/useLocalStorage'
+
 
 // import { useLocalStorage } from '../hooks/useLocalStorage'
 
@@ -29,9 +31,19 @@ function Shop() {
 	// eslint-disable-next-line
 	const { isClickOutside, setClickOutside, ref } = useOnClickOutside(false) //Отслеживание клика вне области открытой корзины
 
-	// const useLocalStorages = () => {
-	// 	// localStorage.clear()
-	// 	const [value, setValue] = useLocalStorage(order, 'goods')
+
+
+
+	// const [allGoods, setAllGoods] = useLocalStorage([], 'allGoods')
+
+	// const addLocalStorage = (item) => {
+	// 	console.log(3, item);
+	// 	console.log(order);
+	// 	const newOrder = order.find(el => el.offerId === item.offerId)
+
+	// 	console.log(2, order)
+	// 	console.log(5, newOrder);
+	// 	// setAllGoods(...order, newItem)
 	// } //Добавление в localStorage
 
 	//Функция добавления товара в корзину
@@ -64,6 +76,7 @@ function Shop() {
 			setAlertShow(true)
 			setOrder(newOrder)
 		}
+		// addLocalStorage(item)
 	}
 
 	//Функция удаления товара из корзины, передаем в BasketList
@@ -126,7 +139,7 @@ function Shop() {
 		setTextAlert('')
 	}
 
-	//Функция следующей страницы с группой карточек при клике кнопки с номером страницы
+	//Функция показа страницы с группой карточек при клике кнопки с номером страницы
 	const paginate = pageNumber => setCurrentPage(pageNumber)
 
 	//Функция показа предыдущей страницы с карточеками, при клике кнопки Prev page
@@ -163,11 +176,10 @@ function Shop() {
 		}).then(response => {
 			response.data.shop && setGoods(response.data.shop) //Проверка приходят ли данные // передача данных в Список товаров
 			setLoading(false)
+		}).catch(error => {
+			console.error(error)
+			setLoading(false)
 		})
-		// .catch(error => {
-		// 	console.error(error);
-		// 	setLoading(false);
-		// });
 	}, [])
 
 	return (
@@ -204,6 +216,7 @@ function Shop() {
 					/>
 				)}
 				{
+					/*Если isBasketShow === true?, отрисовать открытую корзину и передать в нее товары*/
 					isBasketShow && (
 						<div ref={ref}>
 							{/* Контейнер для отслеживания клика вне области корзины и закрытия ее */}
@@ -215,11 +228,8 @@ function Shop() {
 								decQuantity={decQuantity}
 							/>
 						</div>
-					) /*Если isBasketShow === true?, отрисовать открытую корзину и передать в нее товары*/
+					)
 				}
-				{/* {textAlert && (
-					<AlertToCart textAlert={textAlert} closeAlert={closeAlert} />
-				)} */}
 			</main>
 		</div>
 	)

@@ -8,7 +8,7 @@ function GoodsList(props) {
 		goods = [], //Массив с данными с сервера
 		cardPerPage, //Количество отображаемых карточек в группе на одной странице (пагинация)
 		currentPage, //Текущая страница с группой карточек (пагинация)
-		paginate = Function.prototype,
+		paginate = Function.prototype, //Функция показа страницы с группой карточек при клике кнопки с номером страницы
 		prevPage = Function.prototype, //Функция вывода предыдущей группы карточек при клике кнопки Prev page
 		nextPage = Function.prototype, //Функция вывода следующей группы карточек при клике кнопки Next Page
 		addToBasket = Function.prototype, //Функция добавления товара в корзину
@@ -17,7 +17,7 @@ function GoodsList(props) {
 
 	//Если в props пусто:
 	if (!goods.length) {
-		return <h3>Nothing found!</h3>
+		return <h3 className='error-font'>Nothing found!</h3>
 	}
 
 	//Пагинация:
@@ -25,11 +25,10 @@ function GoodsList(props) {
 	const firstCardIndex = lastCardIndex - cardPerPage //Индекс первой карточки
 	const currentCard = goods.slice(firstCardIndex, lastCardIndex)
 	const pageNumbers = [] //Номер текущей группы страниц
-
 	for (let i = 1; i <= Math.ceil(goods.length / cardPerPage); i++) {
 		pageNumbers.push(i)
 	}
-	 
+
 	return (
 		<div
 			className={cn('row', styles.rowSectionMain, {
