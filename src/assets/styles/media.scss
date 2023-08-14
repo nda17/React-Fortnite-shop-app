@@ -36,4 +36,14 @@
 	.basketMedia {
 		max-width: 55rem !important;
 	}
+
+	.nav-mobile {
+		visibility: hidden;
+		display: none;
+	}
+
+	.nav-desktop {
+		visibility: visible;
+		display: flex;
+	}
 }

@@ -25,26 +25,14 @@ function Shop() {
 	// eslint-disable-next-line
 	const [textAlert, setTextAlert] = useState('') //Информационный баннер корзины (текст)
 	const [currentPage, setCurrentPage] = useState(1) //Текущая отображаемая группа страниц (пагинация)
-	const [cardPerPage] = useState(12) //Количество отображаемых карточек в одной группе страниц (пагинация)
+	const [cardPerPage] = useState(10) //Количество отображаемых карточек в одной группе страниц (пагинация)
 	// eslint-disable-next-line
 	const { isClickOutside, setClickOutside, ref } = useOnClickOutside(false) //Отслеживание клика вне области открытой корзины
-
-
-
-
-
 
 	// const useLocalStorages = () => {
 	// 	// localStorage.clear()
 	// 	const [value, setValue] = useLocalStorage(order, 'goods')
 	// } //Добавление в localStorage
-
-
-
-
-
-
-
 
 	//Функция добавления товара в корзину
 	const addToBasket = item => {
@@ -77,8 +65,6 @@ function Shop() {
 			setOrder(newOrder)
 		}
 	}
-
-	
 
 	//Функция удаления товара из корзины, передаем в BasketList
 	const removeFromBasket = offerId => {
@@ -140,10 +126,12 @@ function Shop() {
 		setTextAlert('')
 	}
 
-	const paginate = pageNumber => setCurrentPage(pageNumber) //Функция вывода следующей группы карточек при клике кнопки с номером страницы
+	//Функция следующей страницы с группой карточек при клике кнопки с номером страницы
+	const paginate = pageNumber => setCurrentPage(pageNumber)
 
-	//Функция вывода предыдущей группы карточек при клике кнопки Prev page
+	//Функция показа предыдущей страницы с карточеками, при клике кнопки Prev page
 	const prevPage = () => {
+		//если текущая страница с карточками не первая
 		if (currentPage !== 1) {
 			setCurrentPage(prev => prev - 1)
 		} else {
@@ -153,9 +141,10 @@ function Shop() {
 		}
 	}
 
-	//Функция вывода следующей группы карточек при клике кнопки Next Page
+	//Функция показа следующей страницы с карточеками, при клике кнопки Next Page
 	const nextPage = () => {
-		if (currentPage !== cardPerPage) {
+		//если текущая страница с карточками не равна последней странице
+		if (currentPage !== Math.ceil(goods.length / cardPerPage)) {
 			setCurrentPage(prev => prev + 1)
 		} else {
 			/* Показ текста */
@@ -182,54 +171,57 @@ function Shop() {
 	}, [])
 
 	return (
-		<main
-			className={cn('container', 'contentApp', 'mainProp', {
-				// eslint-disable-next-line
-				['show']: isBasketShow
-			})}
-			onClick={isBasketShow && isClickOutside ? handleBasketShow : null} //Если корзина открыта и произошел клик вне ее области, закрыть корзину
-		>
-			<Cart
-				quantity={order.length}
-				handleBasketShow={
-					handleBasketShow /*Передача состояния handleBasketShow ниже в Cart*/
-				}
-				textAlert={textAlert}
-				closeAlert={closeAlert}
-				isAlertShow={isAlertShow}
-			/>
-			{loading ? (
-				<Preloader />
-			) : (
-				<GoodsList
-					goods={goods}
-					cardPerPage={cardPerPage}
-					currentPage={currentPage}
-					paginate={paginate}
-					prevPage={prevPage}
-					nextPage={nextPage}
-					addToBasket={addToBasket}
-					isBasketShow={isBasketShow}
+		//Контейнер с черным фоном
+		<div className={cn('container', 'color-background-content')}>
+			<main
+				className={cn('container', 'contentApp', 'mainProp', {
+					// eslint-disable-next-line
+					['show']: isBasketShow
+				})}
+				onClick={isBasketShow && isClickOutside ? handleBasketShow : null} //Если корзина открыта и произошел клик вне ее области, закрыть корзину
+			>
+				<Cart
+					quantity={order.length}
+					handleBasketShow={
+						handleBasketShow /*Передача состояния handleBasketShow ниже в Cart*/
+					}
+					textAlert={textAlert}
+					closeAlert={closeAlert}
+					isAlertShow={isAlertShow}
 				/>
-			)}
-			{
-				isBasketShow && (
-					<div ref={ref}>
-						{/* Контейнер для отслеживания клика вне области корзины и закрытия ее */}
-						<BasketList
-							order={order}
-							handleBasketShow={handleBasketShow}
-							removeFromBasket={removeFromBasket}
-							incQuantity={incQuantity}
-							decQuantity={decQuantity}
-						/>
-					</div>
-				) /*Если isBasketShow === true?, отрисовать открытую корзину и передать в нее товары*/
-			}
-			{/* {textAlert && (
-				<AlertToCart textAlert={textAlert} closeAlert={closeAlert} />
-			)} */}
-		</main>
+				{loading ? (
+					<Preloader />
+				) : (
+					<GoodsList
+						goods={goods}
+						cardPerPage={cardPerPage}
+						currentPage={currentPage}
+						paginate={paginate}
+						prevPage={prevPage}
+						nextPage={nextPage}
+						addToBasket={addToBasket}
+						isBasketShow={isBasketShow}
+					/>
+				)}
+				{
+					isBasketShow && (
+						<div ref={ref}>
+							{/* Контейнер для отслеживания клика вне области корзины и закрытия ее */}
+							<BasketList
+								order={order}
+								handleBasketShow={handleBasketShow}
+								removeFromBasket={removeFromBasket}
+								incQuantity={incQuantity}
+								decQuantity={decQuantity}
+							/>
+						</div>
+					) /*Если isBasketShow === true?, отрисовать открытую корзину и передать в нее товары*/
+				}
+				{/* {textAlert && (
+					<AlertToCart textAlert={textAlert} closeAlert={closeAlert} />
+				)} */}
+			</main>
+		</div>
 	)
 }
 

@@ -2,6 +2,8 @@ import logo from '../images/fortnite-logo.svg'
 import cn from 'clsx'
 import styles from './Header.module.scss'
 
+import { Hamburger } from './Hamburger'
+
 function Header() {
 	return (
 		<header className={cn('container', styles.headerProp)}>
@@ -10,7 +12,7 @@ function Header() {
 					<img className={cn(styles.logoImage)} src={logo} alt='Logo' />
 				</div>
 				<div className={cn('col-6', styles.navColumn)}>
-					<nav>
+					<nav className={cn('nav-desktop')}>
 						<ul className={cn(styles.navContainer)}>
 							<li className={cn(styles.navContainerLinkWrap)}>
 								<a href='#0' className={cn(styles.navContainerLink)}>
@@ -28,6 +30,9 @@ function Header() {
 								</a>
 							</li>
 						</ul>
+					</nav>
+					<nav className={cn('nav-mobile')}>
+						<Hamburger />
 					</nav>
 				</div>
 			</div>

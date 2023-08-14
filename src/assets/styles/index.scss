@@ -60,6 +60,10 @@ body {
 	justify-content: center;
 }
 
+.color-background-content {
+	background-color: #000000;
+}
+
 .mainProp {
 	background-color: #191970;
 	display: flex;
@@ -80,4 +84,9 @@ body {
 
 .page-link {
 	border-radius: 0 !important;
+}
+
+.nav-desktop {
+	visibility: hidden;
+	display: none;
 }

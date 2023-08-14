@@ -1,18 +1,18 @@
 .cards {
-	max-width: 315px;
+	max-width: 14.8rem;
 	border-radius: 10px;
 	padding-top: 15px;
 	padding-bottom: 15px;
 }
 
 .card {
-	max-width: 315px;
 	filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
 	background-color: #b0e0e6;
 }
 
 .cardInfo {
 	display: flex;
+	font-size: 0.8rem;
 	font-weight: bold;
 	color: blueviolet;
 }
@@ -39,6 +39,10 @@
 .btnCard,
 .cardInfo {
 	margin-bottom: 1rem;
+}
+
+.cardDescription {
+	font-size: 0.95rem;
 }
 
 .cardTitle {

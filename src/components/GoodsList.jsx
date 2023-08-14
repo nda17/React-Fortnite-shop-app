@@ -5,15 +5,16 @@ import styles from './GoodsList.module.scss'
 //3 Функциональный компонент GoodsList для проверки входящих данных и дальнейшей отрисовки контента c пагинацией / вывода ошибки. Через props принимает массив со всеми пришедшими товарами, параметры пагинации, параметры обработки клика Добавить в корзину.
 function GoodsList(props) {
 	const {
-		goods = [],
-		cardPerPage,
-		currentPage,
+		goods = [], //Массив с данными с сервера
+		cardPerPage, //Количество отображаемых карточек в группе на одной странице (пагинация)
+		currentPage, //Текущая страница с группой карточек (пагинация)
 		paginate = Function.prototype,
-		prevPage = Function.prototype,
-		nextPage = Function.prototype,
-		addToBasket = Function.prototype,
-		isBasketShow = false
+		prevPage = Function.prototype, //Функция вывода предыдущей группы карточек при клике кнопки Prev page
+		nextPage = Function.prototype, //Функция вывода следующей группы карточек при клике кнопки Next Page
+		addToBasket = Function.prototype, //Функция добавления товара в корзину
+		isBasketShow = false //Состояние отвечающее за статус отображения корзины
 	} = props
+
 	//Если в props пусто:
 	if (!goods.length) {
 		return <h3>Nothing found!</h3>
@@ -25,10 +26,10 @@ function GoodsList(props) {
 	const currentCard = goods.slice(firstCardIndex, lastCardIndex)
 	const pageNumbers = [] //Номер текущей группы страниц
 
-	for (let i = 1; i < Math.ceil(goods.length / cardPerPage); i++) {
+	for (let i = 1; i <= Math.ceil(goods.length / cardPerPage); i++) {
 		pageNumbers.push(i)
 	}
-	
+	 
 	return (
 		<div
 			className={cn('row', styles.rowSectionMain, {

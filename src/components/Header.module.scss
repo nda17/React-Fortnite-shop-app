@@ -1,8 +1,8 @@
 .headerProp {
 	background-color: #000000;
 	transition: all 1.2s ease-out;
-    height: 6.5rem;
-    margin-bottom: -1.5rem;
+    /* min-height: 6.5rem; */
+    /* margin-bottom: -1.5rem; */
 }
 
 .header {
@@ -10,8 +10,11 @@
 }
 
 .leftHeaderColumn {
-	display: flex;
-	padding: 0;
+    /* display: flex;
+    padding: 0;
+    align-items: center; */
+    display: flex;
+    align-items: center;
 }
 
 .logoImage {
@@ -22,10 +25,16 @@
 }
 
 .navColumn {
-	display: flex;
+	/* display: flex;
 	align-items: center;
 	justify-content: flex-end;
 	padding: 0;
+	position: relative; */
+	padding-top: 1.7rem;
+	display: flex;
+    justify-content: flex-end;
+    /* padding: 0; */
+    position: relative;
 }
 
 .navContainer {

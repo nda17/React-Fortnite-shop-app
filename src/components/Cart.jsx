@@ -7,7 +7,7 @@ function Cart(props) {
 	const {
 		quantity = 0 /*Количество элементов в корзине, по умолчанию = 0*/,
 		handleBasketShow = Function.prototype,
-		textAlert = null,
+		textAlert = null, //Информационный баннер корзины (текст)
 		closeAlert = Function.prototype,
 		isAlertShow = false
 	} = props
