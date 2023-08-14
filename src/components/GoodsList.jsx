@@ -2,7 +2,6 @@ import { GoodsItem } from './GoodsItem'
 import cn from 'clsx'
 import styles from './GoodsList.module.scss'
 
-// import cn from 'clsx'
 //3 Функциональный компонент GoodsList для проверки входящих данных и дальнейшей отрисовки контента c пагинацией / вывода ошибки. Через props принимает массив со всеми пришедшими товарами, параметры пагинации, параметры обработки клика Добавить в корзину.
 function GoodsList(props) {
 	const {
@@ -29,6 +28,7 @@ function GoodsList(props) {
 	for (let i = 1; i < Math.ceil(goods.length / cardPerPage); i++) {
 		pageNumbers.push(i)
 	}
+	
 	return (
 		<div
 			className={cn('row', styles.rowSectionMain, {

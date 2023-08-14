@@ -8,12 +8,10 @@ import { GoodsList } from './GoodsList'
 import { Cart } from './Cart'
 import { BasketList } from './BasketList'
 import axios from 'axios'
-
-
 import { useOnClickOutside } from '../hooks/useOnClickOutside'
+
+
 // import { useLocalStorage } from '../hooks/useLocalStorage'
-
-
 
 
 //1 Функциональный компонент Shop
@@ -31,10 +29,22 @@ function Shop() {
 	// eslint-disable-next-line
 	const { isClickOutside, setClickOutside, ref } = useOnClickOutside(false) //Отслеживание клика вне области открытой корзины
 
+
+
+
+
+
 	// const useLocalStorages = () => {
-	// 	localStorage.clear()
-	// 	const [count, setCount] = useLocalStorage(order, 'goods')
+	// 	// localStorage.clear()
+	// 	const [value, setValue] = useLocalStorage(order, 'goods')
 	// } //Добавление в localStorage
+
+
+
+
+
+
+
 
 	//Функция добавления товара в корзину
 	const addToBasket = item => {
@@ -67,6 +77,8 @@ function Shop() {
 			setOrder(newOrder)
 		}
 	}
+
+	
 
 	//Функция удаления товара из корзины, передаем в BasketList
 	const removeFromBasket = offerId => {
@@ -175,7 +187,7 @@ function Shop() {
 				// eslint-disable-next-line
 				['show']: isBasketShow
 			})}
-			onClick={isBasketShow && isClickOutside ? handleBasketShow : null} //Если корзина открыта и произошел клик вне ее области, закрытие корзины
+			onClick={isBasketShow && isClickOutside ? handleBasketShow : null} //Если корзина открыта и произошел клик вне ее области, закрыть корзину
 		>
 			<Cart
 				quantity={order.length}

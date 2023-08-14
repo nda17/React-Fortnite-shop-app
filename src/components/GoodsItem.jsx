@@ -15,7 +15,7 @@ function GoodsItem(props) {
 		<div className={cn('col-12', styles.cards)}>
 			<div className={cn('h-100', 'card', styles.card)}>
 				<img
-					src={displayAssets[0].url}
+					src={displayAssets[0].full_background}
 					id={offerId}
 					className={cn('card-img-top', styles.cardImgTop)}
 					alt='Item'
@@ -42,7 +42,7 @@ function GoodsItem(props) {
 								<p className={cn(styles.cardPrice)}>
 									Regular price: {price.regularPrice}&nbsp;
 								</p>
-								<p>₽</p>
+								<p>V-Bucks</p>
 							</div>
 						) : (
 							<div>
@@ -50,11 +50,11 @@ function GoodsItem(props) {
 									<p className={cn(styles.cardPrice)}>
 										Regular price: {price.regularPrice}&nbsp;
 									</p>
-									<p>₽</p>
+									<p>V-Bucks</p>
 								</s>
 								<div className={cn(styles.cardInfo, styles.sale)}>
 									<p className='card-price'>Sale: {price.finalPrice}&nbsp;</p>
-									<p>₽</p>
+									<p>V-Bucks</p>
 								</div>
 							</div>
 						)}
