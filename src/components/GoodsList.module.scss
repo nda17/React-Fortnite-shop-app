@@ -5,31 +5,53 @@
 	}
 }
 
-.pagination {
+.paginations {
 	display: flex;
 	justify-content: center;
-	padding: 28px;
+	padding: 1.75rem 1.75rem 0.75rem 1.75rem;
 	flex-wrap: wrap;
+}
+
+.paginationsItem {
+	width: 1.875rem;
+	height: 1.875rem;
+	background: #808080;
+	margin-right: 0.25rem;
+	margin-bottom: 0.25rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	cursor: pointer;
+	box-shadow: -0.063rem 0.063rem 0.5rem 0.813rem rgba(34, 60, 80, 0.2);
+}
+
+.paginationsItem:last-child {
+	margin-right: 0rem;
+}
+
+.paginationsItemLink {
+	color: #ffffff;
+	font-size: 1.05rem;
 }
 
 .pageControlWrap {
 	display: flex;
-	justify-content: space-evenly;
-	width: 85%;
+	justify-content: center;
 }
 
 .pageControlBtn {
-	width: 45%;
+	width: 8rem;
 	font-size: 0.9rem;
-	margin-bottom: 1rem;
+	margin: 0rem 0.313rem 1rem 0.313rem;
 	display: flex;
 	justify-content: center;
-	background-color: firebrick;
+	background-color: #b22222;
 	border: none;
 	transition: all 0.3s;
 }
 
 .pageControlBtn:hover {
-	background-color: tomato;
+	background-color: #ff6347;
 	scale: 1.01;
 }

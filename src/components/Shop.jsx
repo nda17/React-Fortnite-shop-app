@@ -8,13 +8,6 @@ import { GoodsList } from './GoodsList'
 import { Cart } from './Cart'
 import { BasketList } from './BasketList'
 import axios from 'axios'
-import { useOnClickOutside } from '../hooks/useOnClickOutside'
-
-
-
-
-// import { useLocalStorage } from '../hooks/useLocalStorage'
-
 
 //1 Функциональный компонент Shop
 function Shop() {
@@ -28,11 +21,6 @@ function Shop() {
 	const [textAlert, setTextAlert] = useState('') //Информационный баннер корзины (текст)
 	const [currentPage, setCurrentPage] = useState(1) //Текущая отображаемая группа страниц (пагинация)
 	const [cardPerPage] = useState(10) //Количество отображаемых карточек в одной группе страниц (пагинация)
-	// eslint-disable-next-line
-	const { isClickOutside, setClickOutside, ref } = useOnClickOutside(false) //Отслеживание клика вне области открытой корзины
-
-
-
 
 	// const [allGoods, setAllGoods] = useLocalStorage([], 'allGoods')
 
@@ -87,7 +75,7 @@ function Shop() {
 		setAlertShow(true)
 	}
 
-	//Функция увеличения количества товара в корзине
+	//Функция увеличения количества выбранного товара в корзине
 	const incQuantity = offerId => {
 		const newOrder = order.map(el => {
 			if (el.offerId === offerId) {
@@ -105,7 +93,7 @@ function Shop() {
 		setOrder(newOrder)
 	}
 
-	//Функция уменьшения количества товара в корзине
+	//Функция уменьшения количества выбранного товара в корзине
 	const decQuantity = offerId => {
 		const newOrder = order.map(el => {
 			if (el.offerId === offerId) {
@@ -142,7 +130,7 @@ function Shop() {
 	//Функция показа страницы с группой карточек при клике кнопки с номером страницы
 	const paginate = pageNumber => setCurrentPage(pageNumber)
 
-	//Функция показа предыдущей страницы с карточеками, при клике кнопки Prev page
+	//Функция показа предыдущей страницы с карточками, при клике кнопки Prev page
 	const prevPage = () => {
 		//если текущая страница с карточками не первая
 		if (currentPage !== 1) {
@@ -154,7 +142,7 @@ function Shop() {
 		}
 	}
 
-	//Функция показа следующей страницы с карточеками, при клике кнопки Next Page
+	//Функция показа следующей страницы с карточками, при клике кнопки Next Page
 	const nextPage = () => {
 		//если текущая страница с карточками не равна последней странице
 		if (currentPage !== Math.ceil(goods.length / cardPerPage)) {
@@ -173,13 +161,15 @@ function Shop() {
 			headers: {
 				Authorization: API_KEY
 			}
-		}).then(response => {
-			response.data.shop && setGoods(response.data.shop) //Проверка приходят ли данные // передача данных в Список товаров
-			setLoading(false)
-		}).catch(error => {
-			console.error(error)
-			setLoading(false)
 		})
+			.then(response => {
+				response.data.shop && setGoods(response.data.shop) //Проверка приходят ли данные // передача данных в Список товаров
+				setLoading(false)
+			})
+			.catch(error => {
+				console.error(error)
+				setLoading(false)
+			})
 	}, [])
 
 	return (
@@ -190,7 +180,6 @@ function Shop() {
 					// eslint-disable-next-line
 					['show']: isBasketShow
 				})}
-				onClick={isBasketShow && isClickOutside ? handleBasketShow : null} //Если корзина открыта и произошел клик вне ее области, закрыть корзину
 			>
 				<Cart
 					quantity={order.length}
@@ -218,16 +207,13 @@ function Shop() {
 				{
 					/*Если isBasketShow === true?, отрисовать открытую корзину и передать в нее товары*/
 					isBasketShow && (
-						<div ref={ref}>
-							{/* Контейнер для отслеживания клика вне области корзины и закрытия ее */}
-							<BasketList
-								order={order}
-								handleBasketShow={handleBasketShow}
-								removeFromBasket={removeFromBasket}
-								incQuantity={incQuantity}
-								decQuantity={decQuantity}
-							/>
-						</div>
+						<BasketList
+							order={order}
+							handleBasketShow={handleBasketShow}
+							removeFromBasket={removeFromBasket}
+							incQuantity={incQuantity}
+							decQuantity={decQuantity}
+						/>
 					)
 				}
 			</main>

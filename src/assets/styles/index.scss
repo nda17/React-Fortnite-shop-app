@@ -51,13 +51,17 @@ body {
 }
 
 .contentApp {
-	min-height: calc(100vh - 40px - 80px);
+	min-height: calc(100vh - 2.5rem - 5rem);
 }
 
 .row {
 	width: 100%;
 	display: flex;
 	justify-content: center;
+}
+
+.btn {
+	filter: drop-shadow(0 0.25rem 0.25rem rgba(0, 0, 0, 0.25));
 }
 
 .color-background-content {
@@ -70,12 +74,12 @@ body {
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
-	border: 1px solid #000000;
+	border: 0.063rem solid #000000;
 	position: relative;
 	transition: all 1.2s ease-out;
-	border-right: 4px solid #000000;
-	border-left: 4px solid #000000;
-	border-radius: 25px;
+	border-right: 0.25rem solid #000000;
+	border-left: 0.25rem solid #000000;
+	border-radius: 1.563rem;
 }
 
 .show {
@@ -92,5 +96,13 @@ body {
 }
 
 .error-font {
-	color: red;
+	color: #ff0000;
+}
+
+.activePage {
+	background: #d9c518 !important;
+}
+
+.activePageNumber {
+	color: #b22222 !important;
 }

@@ -1,8 +1,8 @@
-//7 Функциональный компонент BasketItem, один элемент корзины, в props приходит информация о товарах
 import cn from 'clsx'
 import styles from './BasketItem.module.scss'
 
-function BasketItem(props) {
+//7 Функциональный компонент BasketItem, один элемент корзины, в props приходит информация о товарах
+const BasketItem = props => {
 	const {
 		offerId,
 		displayName,
@@ -12,6 +12,7 @@ function BasketItem(props) {
 		incQuantity = Function.prototype,
 		decQuantity = Function.prototype
 	} = props
+
 	return (
 		<div className={cn(styles.basketItemWrap)}>
 			<div className={cn(styles.basketItemProp)}>

@@ -3,13 +3,12 @@
 }
 
 .footerProp {
-	min-height: 55px;
+	min-height: 3.438rem;
 	display: flex;
 	align-items: center;
 	background-color: #000000;
 	transition: all 1.2s ease-out;
-    height: 6.5rem;
-    /* margin-top: -1.5rem; */
+	height: 6.5rem;
 }
 
 .footerCols {
@@ -25,12 +24,12 @@
 
 .copyrightUpText,
 .copyrightBottomText {
-	color: white;
+	color: #ffffff;
 	display: flex;
 	align-items: center;
 	margin: 0;
 }
 
 .linkContactsGh {
-	width: 25px;
+	width: 1.563rem;
 }

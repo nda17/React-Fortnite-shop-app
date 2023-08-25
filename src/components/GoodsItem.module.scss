@@ -1,12 +1,12 @@
 .cards {
 	max-width: 14.8rem;
-	border-radius: 10px;
-	padding-top: 15px;
-	padding-bottom: 15px;
+	border-radius: 0.625rem;
+	padding-top: 0.938rem;
+	padding-bottom: 0.938rem;
 }
 
 .card {
-	filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+	filter: drop-shadow(0 0.25rem 0.25rem rgba(0, 0, 0, 0.25));
 	background-color: #b0e0e6;
 }
 
@@ -14,7 +14,7 @@
 	display: flex;
 	font-size: 0.8rem;
 	font-weight: bold;
-	color: blueviolet;
+	color: #8a2be2;
 }
 
 .cardInfo:last-child {
@@ -22,12 +22,13 @@
 }
 
 .sale {
-	color: red;
-	font-size: 17px;
+	color: #ff0000;
+	font-size: 1.063rem;
 }
 
 .cardImgTop {
 	background: #858177;
+	filter: drop-shadow(0 0.25rem 0.25rem rgba(0, 0, 0, 0.25));
 }
 
 .cardPrice:last-child {
@@ -39,6 +40,7 @@
 .btnCard,
 .cardInfo {
 	margin-bottom: 1rem;
+	filter: drop-shadow(0 0.25rem 0.25rem rgba(0, 0, 0, 0.25));
 }
 
 .cardDescription {
@@ -46,7 +48,7 @@
 }
 
 .cardTitle {
-	font-size: 18px;
+	font-size: 1.125rem;
 	font-weight: bold;
 }
 
@@ -54,12 +56,12 @@
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	background-color: firebrick;
+	background-color: #b22222;
 	border: none;
 	transition: all 0.3s;
 }
 
 .btnCard:hover {
-	background-color: tomato;
+	background-color: #ff6347;
 	scale: 1.01;
 }

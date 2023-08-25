@@ -3,7 +3,7 @@ import cn from 'clsx'
 import styles from './GoodsList.module.scss'
 
 //3 Функциональный компонент GoodsList для проверки входящих данных и дальнейшей отрисовки контента c пагинацией / вывода ошибки. Через props принимает массив со всеми пришедшими товарами, параметры пагинации, параметры обработки клика Добавить в корзину.
-function GoodsList(props) {
+const GoodsList = props => {
 	const {
 		goods = [], //Массив с данными с сервера
 		cardPerPage, //Количество отображаемых карточек в группе на одной странице (пагинация)
@@ -24,7 +24,7 @@ function GoodsList(props) {
 	const lastCardIndex = currentPage * cardPerPage //Индекс последней карточки
 	const firstCardIndex = lastCardIndex - cardPerPage //Индекс первой карточки
 	const currentCard = goods.slice(firstCardIndex, lastCardIndex)
-	const pageNumbers = [] //Номер текущей группы страниц
+	const pageNumbers = [] //Массив с отображаемыми группами страниц
 	for (let i = 1; i <= Math.ceil(goods.length / cardPerPage); i++) {
 		pageNumbers.push(i)
 	}
@@ -44,12 +44,21 @@ function GoodsList(props) {
 					}
 				/>
 			))}
-			<ul className={cn('pagination', styles.pagination)}>
+			<ul className={cn(styles.paginations)}>
 				{pageNumbers.map(number => (
-					<li className={cn('page-item')} key={number}>
+					<li
+						className={cn(styles.paginationsItem, {
+							// eslint-disable-next-line
+							['activePage']: number === currentPage
+						})}
+						key={number}
+					>
 						<a
 							href='#0'
-							className={cn('page-link')}
+							className={cn(styles.paginationsItemLink, {
+								// eslint-disable-next-line
+								['activePageNumber']: number === currentPage
+							})}
 							key={number}
 							onClick={() => paginate(number)}
 						>
@@ -60,13 +69,23 @@ function GoodsList(props) {
 			</ul>
 			<div className={cn(styles.pageControlWrap)}>
 				<button
-					className={cn('btn', 'btn-primary', styles.pageControlBtn)}
+					className={cn(
+						'btn',
+						'btn-primary',
+						'pageControlBtn',
+						styles.pageControlBtn
+					)}
 					onClick={prevPage}
 				>
 					Prev page
 				</button>
 				<button
-					className={cn('btn', 'btn-primary', styles.pageControlBtn)}
+					className={cn(
+						'btn',
+						'btn-primary',
+						'pageControlBtn',
+						styles.pageControlBtn
+					)}
 					onClick={nextPage}
 				>
 					Next page

@@ -1,17 +1,21 @@
-// import { useOnClickOutside } from '../hooks/useOnClickOutside' //Функция закрытия окна корзины при клике вне корзины 
 import { BasketItem } from './BasketItem'
 import cn from 'clsx'
 import styles from './BasketList.module.scss'
+import { useRef } from 'react'
+import { useClickOutside } from '../hooks/useClickOutside' //Хук для закрытия корзины при клике вне ее блока
 
 //6 Функциональный компонент BasketList, список заказов в корзине, в props приходит массив со списком заказов и функция управления состоянием показа корзины
-function BasketList(props) {
+const BasketList = props => {
+	const basketRef = useRef(null)
+
+	useClickOutside(basketRef, () => handleBasketShow()) //Закрытие корзины при клике вне ее блока
 
 	const {
 		order = [],
 		handleBasketShow = Function.prototype,
 		removeFromBasket = Function.prototype,
 		incQuantity,
-		decQuantity,
+		decQuantity
 	} = props
 
 	//Функция рассчета итоговой суммы в корзине
@@ -22,10 +26,9 @@ function BasketList(props) {
 				: el.price.finalPrice
 		return acc + price * el.quantity
 	}, 0)
+
 	return (
-		<div
-			className={cn('basketMedia', styles.basket)}
-		>
+		<div className={cn('basketMedia', styles.basket)} ref={basketRef}>
 			<h2 className={cn(styles.basketTitle)}>
 				Cart:
 				<span

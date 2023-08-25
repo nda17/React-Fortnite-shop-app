@@ -1,4 +1,3 @@
-/* Устройства Small (устройства с горизонтальной ориентацией от 576px) */
 @media (min-width: 576px) {
 	.basketMedia {
 		max-width: 32rem !important;
@@ -17,12 +16,8 @@
 		flex-direction: row !important;
 	}
 
-	.pageControlWrap {
-		width: 60% !important;
-	}
-
 	.pageControlBtn {
-		width: 27% !important;
+		width: 8rem !important;
 	}
 }
 
@@ -45,5 +40,9 @@
 	.nav-desktop {
 		visibility: visible;
 		display: flex;
+	}
+
+	.pageControlBtn {
+		width: 1.875rem;
 	}
 }

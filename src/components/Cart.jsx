@@ -1,9 +1,9 @@
-//5 Функциональный компонент Cart, корзина с товарами. Принимает props с количеством товара, по умолчанию quantity = 0.
 import { useEffect } from 'react'
 import cn from 'clsx'
 import styles from './Cart.module.scss'
 
-function Cart(props) {
+//5 Функциональный компонент Cart, корзина с товарами. Принимает props с количеством товара
+const Cart = props => {
 	const {
 		quantity = 0 /*Количество элементов в корзине, по умолчанию = 0*/,
 		handleBasketShow = Function.prototype,
@@ -19,6 +19,7 @@ function Cart(props) {
 		}
 		// eslint-disable-next-line
 	}, [textAlert])
+
 	return (
 		<div className={cn(styles.cartWrapBlock)}>
 			<div
@@ -54,4 +55,4 @@ function Cart(props) {
 	)
 }
 
-export { Cart };
+export { Cart }

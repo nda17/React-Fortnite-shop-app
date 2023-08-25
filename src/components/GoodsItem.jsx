@@ -1,16 +1,17 @@
-//4 Функциональный компонент - карточка товара, принимающая данные через props
 import cn from 'clsx'
 import styles from './GoodsItem.module.scss'
 
-function GoodsItem(props) {
+//4 Функциональный компонент - карточка товара, принимающая данные через props
+const GoodsItem = props => {
 	const {
 		offerId,
 		displayName,
 		displayDescription,
 		price,
 		displayAssets,
-		addToBasket = Function.prototype,
+		addToBasket = Function.prototype
 	} = props
+
 	return (
 		<div className={cn('col-12', styles.cards)}>
 			<div className={cn('h-100', 'card', styles.card)}>

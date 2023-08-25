@@ -4,13 +4,13 @@ import styles from './Header.module.scss'
 
 import { Hamburger } from './Hamburger'
 
-function Header() {
+const Header = () => {
 	return (
 		<header className={cn('container', styles.headerProp)}>
 			<div className={cn('row', styles.header)}>
-				<div className={cn('col-6', styles.leftHeaderColumn)}>
+				<a href='#0' className={cn('col-6', styles.leftHeaderColumn)}>
 					<img className={cn(styles.logoImage)} src={logo} alt='Logo' />
-				</div>
+				</a>
 				<div className={cn('col-6', styles.navColumn)}>
 					<nav className={cn('nav-desktop')}>
 						<ul className={cn(styles.navContainer)}>

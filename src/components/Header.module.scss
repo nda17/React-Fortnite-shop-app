@@ -1,8 +1,6 @@
 .headerProp {
 	background-color: #000000;
 	transition: all 1.2s ease-out;
-    /* min-height: 6.5rem; */
-    /* margin-bottom: -1.5rem; */
 }
 
 .header {
@@ -10,31 +8,22 @@
 }
 
 .leftHeaderColumn {
-    /* display: flex;
-    padding: 0;
-    align-items: center; */
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .logoImage {
-	width: 60px;
-	height: 60px;
-	padding: 10px 0px;
+	width: 3.75rem;
+	height: 3.75rem;
+	padding: 0.625rem 0rem;
 	box-sizing: content-box;
 }
 
 .navColumn {
-	/* display: flex;
-	align-items: center;
-	justify-content: flex-end;
-	padding: 0;
-	position: relative; */
 	padding-top: 1.7rem;
 	display: flex;
-    justify-content: flex-end;
-    /* padding: 0; */
-    position: relative;
+	justify-content: flex-end;
+	position: relative;
 }
 
 .navContainer {
@@ -43,11 +32,11 @@
 }
 
 .navContainerLinkWrap {
-	margin-right: 15px;
+	margin-right: 0.938rem;
 }
 
 .navContainerLinkWrap:last-child {
-	margin-right: 0px;
+	margin-right: 0rem;
 }
 
 .navContainerLink {
@@ -56,6 +45,6 @@
 	font-weight: 500;
 }
 
-.nav-container__link:hover {
-	color: red;
+.navContainerLink:hover {
+	color: #b22222;
 }

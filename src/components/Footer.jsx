@@ -2,7 +2,7 @@ import gh from '../icons/github.svg'
 import cn from 'clsx'
 import styles from './Footer.module.scss'
 
-function Footer() {
+const Footer = () => {
 	return (
 		<footer className={cn('container', styles.footerProp)}>
 			<div className={cn('row', styles.footer)}>
