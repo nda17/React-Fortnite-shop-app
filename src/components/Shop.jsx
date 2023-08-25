@@ -22,18 +22,6 @@ function Shop() {
 	const [currentPage, setCurrentPage] = useState(1) //Текущая отображаемая группа страниц (пагинация)
 	const [cardPerPage] = useState(10) //Количество отображаемых карточек в одной группе страниц (пагинация)
 
-	// const [allGoods, setAllGoods] = useLocalStorage([], 'allGoods')
-
-	// const addLocalStorage = (item) => {
-	// 	console.log(3, item);
-	// 	console.log(order);
-	// 	const newOrder = order.find(el => el.offerId === item.offerId)
-
-	// 	console.log(2, order)
-	// 	console.log(5, newOrder);
-	// 	// setAllGoods(...order, newItem)
-	// } //Добавление в localStorage
-
 	//Функция добавления товара в корзину
 	const addToBasket = item => {
 		const itemIndex = order.findIndex(
@@ -45,7 +33,7 @@ function Shop() {
 				...item,
 				quantity: 1
 			}
-			setOrder([...order, newItem] /*обновление заказов в корзине*/)
+			setOrder([...order, newItem]) //Обновление заказов в корзине
 			setTextAlert('New item added to cart')
 			setAlertShow(true)
 		} else {
@@ -60,11 +48,10 @@ function Shop() {
 					return orderItem
 				}
 			})
+			setOrder(newOrder)
 			setTextAlert('Quantity increased')
 			setAlertShow(true)
-			setOrder(newOrder)
 		}
-		// addLocalStorage(item)
 	}
 
 	//Функция удаления товара из корзины, передаем в BasketList
@@ -132,7 +119,7 @@ function Shop() {
 
 	//Функция показа предыдущей страницы с карточками, при клике кнопки Prev page
 	const prevPage = () => {
-		//если текущая страница с карточками не первая
+		//Если текущая страница с карточками не первая
 		if (currentPage !== 1) {
 			setCurrentPage(prev => prev - 1)
 		} else {
@@ -144,7 +131,7 @@ function Shop() {
 
 	//Функция показа следующей страницы с карточками, при клике кнопки Next Page
 	const nextPage = () => {
-		//если текущая страница с карточками не равна последней странице
+		//Если текущая страница с карточками не равна последней странице
 		if (currentPage !== Math.ceil(goods.length / cardPerPage)) {
 			setCurrentPage(prev => prev + 1)
 		} else {
