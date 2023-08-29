@@ -54,7 +54,9 @@ const BasketList = props => {
 				)}
 			</div>
 			<li className={cn(styles.basketTotal)}>Total cost: {totalPrice} ₽</li>
-			<button className={cn(styles.basketButtonBuy)}>Buy</button>
+			<button className={cn('btn', 'btn-primary', styles.basketButtonBuy)}>
+				Buy
+			</button>
 		</div>
 	)
 }

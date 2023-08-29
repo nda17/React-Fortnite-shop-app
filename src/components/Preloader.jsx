@@ -7,7 +7,7 @@ const Preloader = () => {
 		<div className={cn('d-flex', 'align-items-center', styles.preloaderProp)}>
 			<strong className={cn(styles.preloaderPropText)}>Loading ...</strong>
 			<div
-				className='spinner-border ml-auto'
+				className={cn('spinner-border ml-auto')}
 				role='status'
 				aria-hidden='true'
 			></div>

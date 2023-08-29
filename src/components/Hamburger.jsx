@@ -17,9 +17,9 @@ const Hamburger = () => {
 		<div className={cn(styles.hamburgerMenu)}>
 			<button onClick={() => handleOpenHamburger()}>
 				{isVisible ? (
-					<FaBars className={styles.iconImageHamburger} />
+					<FaBars className={cn(styles.iconImageHamburger)} />
 				) : (
-					<FaAngleDown className={styles.iconImageArrowDown} />
+					<FaAngleDown className={cn(styles.iconImageArrowDown)} />
 				)}
 			</button>
 			<MobileMenu

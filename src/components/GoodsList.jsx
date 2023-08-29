@@ -17,7 +17,7 @@ const GoodsList = props => {
 
 	//Если в props пусто:
 	if (!goods.length) {
-		return <h3 className='error-font'>Nothing found!</h3>
+		return <h3 className={cn(styles.errorMessage)}>Nothing found!</h3>
 	}
 
 	//Пагинация:

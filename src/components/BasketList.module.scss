@@ -59,10 +59,18 @@
 .basketButtonBuy {
 	width: 4.688rem;
 	height: 2.188rem;
-	font-weight: 700;
-	background-color: #ffff00;
 	position: absolute;
 	bottom: 0.375rem;
 	right: 1rem;
-	border-radius: 0.625rem;
+	display: flex;
+	justify-content: center;
+	background-color: #b22222;
+	border: none;
+	transition: all 0.3s;
+	filter: drop-shadow(0 0.25rem 0.25rem rgba(0, 0, 0, 0.25));
+}
+
+.basketButtonBuy:hover {
+	background-color: #ff6347;
+	scale: 1.01;
 }

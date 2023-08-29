@@ -54,7 +54,7 @@ const GoodsItem = props => {
 									<p>V-Bucks</p>
 								</s>
 								<div className={cn(styles.cardInfo, styles.sale)}>
-									<p className='card-price'>Sale: {price.finalPrice}&nbsp;</p>
+									<p className={cn('card-price')}>Sale: {price.finalPrice}&nbsp;</p>
 									<p>V-Bucks</p>
 								</div>
 							</div>
